@@ -58,7 +58,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* ---------- typography ---------- */
-h1, h2, h3, h4 { font-family: var(--type-heading); margin: 0; font-weight: 600; text-wrap: balance; color: var(--firefly); }
+h1, h2, h3, h4 { font-family: var(--type-heading); margin: 0; font-weight: 600; line-height: 1.1; text-wrap: balance; color: var(--firefly); }
 p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly); }
 
 .mc-eyebrow {
@@ -558,11 +558,10 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   align-items: center;
 }
 .mc-picker-section h2 {
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 600;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.018em;
   margin-top: 12px;
-  max-width: 14ch;
   margin-bottom: 16px;
 }
 .mc-picker {
