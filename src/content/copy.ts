@@ -126,6 +126,9 @@ export const SITE = {
   },
 
   contact: {
+    // Paste your Formspree endpoint here once you have it.
+    // From formspree.io → your form → "Integration" tab → copy the URL in <form action="...">
+    formspreeEndpoint: 'https://formspree.io/f/REPLACE_ME',
     eyebrow: 'Get in touch',
     heading: 'Tell me about your situation.',
     aside:

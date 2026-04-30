@@ -3,9 +3,6 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icons.astro';
 import { ROLES } from '../data/roles';
 import { SITE } from '../content/copy';
-
-const FORMSPREE_ENDPOINT =
-  import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/REPLACE_ME';
 ---
 <Base title={SITE.meta.title} description={SITE.meta.description}>
   <!-- ====== TOP NAV ====== -->
@@ -191,7 +188,7 @@ const FORMSPREE_ENDPOINT =
         <h2>{SITE.contact.heading}</h2>
       </div>
 
-      <form class="mc-form" id="contact-form" action={FORMSPREE_ENDPOINT} method="POST">
+      <form class="mc-form" id="contact-form" action={SITE.contact.formspreeEndpoint} method="POST">
         <div class="mc-form-grid">
           <label class="mc-field">
             <span class="mc-field-label">{SITE.contact.fields.name}</span>
