@@ -155,7 +155,16 @@ import { SITE } from '../content/copy';
         {SITE.about.longer.map((section) => (
           <div>
             <h4>{section.heading}</h4>
-            {'list' in section && section.list ? (
+            {'chapters' in section && section.chapters ? (
+              <div class="mc-chapters">
+                {section.chapters.map((ch) => (
+                  <div class="mc-chapter">
+                    <h5>{ch.heading}</h5>
+                    <p>{ch.body}</p>
+                  </div>
+                ))}
+              </div>
+            ) : 'list' in section && section.list ? (
               <ul>
                 {section.list.map((li) => (
                   <li><strong>{li.strong}</strong>{li.body}</li>

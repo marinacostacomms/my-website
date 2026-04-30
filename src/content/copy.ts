@@ -62,8 +62,29 @@ export const SITE = {
 
     longer: [
       {
-        heading: 'Background',
-        body: 'Public policy, then a global PR firm. Built communications infrastructure from scratch for tech scale-ups and political campaigns. Managed corporate reputation during CEO transitions and major crises.',
+        heading: 'My Career Story',
+        chapters: [
+          {
+            heading: 'Chapter 1: Public Policy & Government Relations',
+            body: 'My career began in Ottawa, where I tracked federal policy and advised senior leaders on risk and opportunity for their organizations. This is where I learned to navigate complex regulatory environments and provide executive-level counsel.',
+          },
+          {
+            heading: 'Chapter 2: Global PR Agency & Professional Craft',
+            body: "I returned home to Calgary to drive an eight-figure account for a global PR firm. This was my masterclass in communication and public relations, training under the industry's top practitioners.",
+          },
+          {
+            heading: 'Chapter 3: Tech Scale-Up and Political Campaigns',
+            body: 'I moved into tech scale-ups and political campaigns. With no existing roadmaps, I built communications infrastructure from scratch and in real-time.',
+          },
+          {
+            heading: 'Chapter 4: Large Corporate & International',
+            body: 'I transitioned into the corporate sector, managing reputation for multinational organizations through global pandemics, supply chain disruptions, and CEO transitions.',
+          },
+          {
+            heading: 'Today',
+            body: "After 15 years, I recognized that structural communication gaps exist in every industry. I founded this consultancy to provide the fractional leadership and communication architecture usually reserved for larger organizations. I've turned my experience into a service offering for founders and teams who need senior-level strategy without the full-time overhead.",
+          },
+        ],
       },
       {
         heading: 'How I approach the work',

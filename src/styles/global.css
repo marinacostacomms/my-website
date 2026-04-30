@@ -569,13 +569,16 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 .mc-iconlink:hover { background: var(--atomic-tangerine); color: var(--firefly); border-color: var(--cream); }
 .mc-about-detail {
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   padding: 36px;
   background: rgba(245, 243, 240, 0.06);
   border: 2px solid rgba(245, 243, 240, 0.3);
   border-radius: 0;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
   animation: mc-fade-in 220ms var(--ease-out);
 }
 .mc-about-detail h4 {
@@ -585,16 +588,33 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--atomic-tangerine);
-  margin: 0 0 12px;
+  margin: 0 0 16px;
 }
 .mc-about-detail p, .mc-about-detail li {
   color: rgba(245, 243, 240, 0.85);
   font-size: 15px;
   line-height: 1.6;
+  margin: 0 0 12px;
 }
 .mc-about-detail ul { list-style: none; padding: 0; margin: 0; }
 .mc-about-detail li { margin-bottom: 10px; }
 .mc-about-detail strong { color: var(--cream); font-weight: 700; }
+
+/* Career-story chapters inside about-detail */
+.mc-chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mc-chapter h5 {
+  font-family: var(--type-heading);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin: 0 0 8px;
+}
+.mc-chapter p { margin: 0; }
 
 /* ---------- picker ---------- */
 .mc-picker-section {
