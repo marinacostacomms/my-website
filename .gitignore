@@ -6,3 +6,7 @@ dist/
 .env.local
 .wrangler/
 .claude/
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
