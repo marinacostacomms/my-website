@@ -521,7 +521,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   width: 280px;
   max-width: 100%;
   background-image: url('/assets/MarinaCosta_Headshot.jpg');
-  background-size: cover;
+  background-size: 130%;
   background-position: center top;
   background-repeat: no-repeat;
   border: 2px solid var(--cream);
