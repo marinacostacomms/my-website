@@ -210,6 +210,9 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 }
 .mc-nav-mobile a:last-child { border-bottom: 0; }
 .mc-nav-mobile .mc-nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-top: 8px;
   padding: 14px 18px;
   justify-content: center;
@@ -511,16 +514,17 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 .mc-portrait {
   position: relative;
   aspect-ratio: 4 / 5;
-  background: linear-gradient(160deg, #6868AC, #FFB27D 70%, #AB8188);
+  width: 100%;
+  max-width: 280px;
+  background-image: url('/assets/MarinaCosta_Headshot_Cropped.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 2px solid var(--cream);
   border-radius: 0;
   overflow: hidden;
 }
-.mc-portrait-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(12, 36, 50, 0.4) 100%);
-}
+.mc-portrait-overlay { display: none; }
 .mc-about h2 {
   color: var(--cream);
   font-size: clamp(32px, 3.6vw, 44px);
