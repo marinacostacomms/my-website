@@ -237,9 +237,9 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   margin-bottom: 40px;
 }
 .mc-roles h2 {
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(32px, 3.6vw, 44px);
   font-weight: 600;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.018em;
   margin-top: 12px;
   text-wrap: pretty;
 }
@@ -481,9 +481,9 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 }
 .mc-about h2 {
   color: var(--cream);
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(32px, 3.6vw, 44px);
   font-weight: 600;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.018em;
   margin-top: 12px;
   max-width: 18ch;
   margin-bottom: 24px;
@@ -558,7 +558,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   align-items: center;
 }
 .mc-picker-section h2 {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(32px, 3.6vw, 44px);
   font-weight: 600;
   letter-spacing: -0.018em;
   margin-top: 12px;
@@ -659,7 +659,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   margin: 0 auto 32px;
 }
 .mc-contact h2 {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(32px, 3.6vw, 44px);
   font-weight: 600;
   letter-spacing: -0.018em;
   margin-top: 12px;
