@@ -189,7 +189,7 @@ export const SITE = {
 
   footer: {
     blurb:
-      'An independent communications practitioner. Working with founders and teams to elevate their storytelling capacity for the long term.',
+      'Independent communications practitioner working with founders and teams to elevate their storytelling capacity for the long term.',
     columns: [
       {
         heading: 'Site',

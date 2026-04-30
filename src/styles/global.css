@@ -512,16 +512,16 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   grid-template-columns: auto 1fr;
   gap: clamp(40px, 6vw, 64px);
   align-items: center;
-  max-width: 920px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .mc-portrait {
   position: relative;
   aspect-ratio: 4 / 5;
-  width: 280px;
+  width: 360px;
   max-width: 100%;
   background-image: url('/assets/MarinaCosta_Headshot.jpg');
-  background-size: 130%;
+  background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   border: 2px solid var(--cream);
@@ -867,6 +867,13 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   color: var(--cream);
 }
 .mc-footer-mark img { width: 56px; height: 36px; object-fit: contain; }
+.mc-footer-mark-text {
+  font-family: var(--type-heading);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
 .mc-footer p {
   color: rgba(245, 243, 240, 0.7);
   max-width: 38ch;
