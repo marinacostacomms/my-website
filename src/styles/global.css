@@ -213,7 +213,10 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   margin-top: 8px;
   padding: 14px 18px;
   justify-content: center;
+  color: var(--cream);
+  border-bottom: 2px solid var(--firefly);
 }
+.mc-nav-mobile .mc-nav-cta:hover { color: var(--cream); }
 
 /* ---------- hero ---------- */
 .mc-hero {
