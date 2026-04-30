@@ -507,16 +507,16 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 }
 .mc-about-inner {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) 1.4fr;
-  gap: clamp(40px, 6vw, 80px);
+  grid-template-columns: auto 1fr;
+  gap: clamp(40px, 6vw, 64px);
   align-items: center;
 }
 .mc-portrait {
   position: relative;
   aspect-ratio: 4 / 5;
-  width: 100%;
-  max-width: 280px;
-  background-image: url('/assets/MarinaCosta_Headshot_Cropped.png');
+  width: 280px;
+  max-width: 100%;
+  background-image: url('/assets/MarinaCosta_Headshot.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
