@@ -520,7 +520,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   max-width: 100%;
   background-image: url('/assets/MarinaCosta_Headshot.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   border: 2px solid var(--cream);
   border-radius: 0;
