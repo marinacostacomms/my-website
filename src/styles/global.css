@@ -108,7 +108,8 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   background: var(--firefly);
   border-color: var(--firefly);
   color: #fff;
-  box-shadow: 6px 6px 0 var(--very-peri);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(104, 104, 172, 0.5);
 }
 .mc-btn--ghost {
   background: transparent;
@@ -306,14 +307,16 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   border: 2px solid var(--firefly);
   border-radius: 0;
   padding: 0;
-  transition: box-shadow var(--dur-base) var(--ease-out);
+  transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 .mc-role-card:hover {
-  box-shadow: 8px 8px 0 var(--very-peri);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(104, 104, 172, 0.4);
   z-index: 2;
 }
 .mc-role-card.is-active {
-  box-shadow: 8px 8px 0 var(--atomic-tangerine);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(255, 178, 125, 0.5);
   z-index: 2;
 }
 .mc-role-top {
@@ -424,7 +427,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   border: 2px solid var(--firefly);
   border-radius: 0;
   padding: 40px;
-  box-shadow: 8px 8px 0 var(--atomic-tangerine);
+  box-shadow: 0 16px 40px -12px rgba(255, 178, 125, 0.45);
   animation: mc-fade-in 220ms var(--ease-out);
 }
 @keyframes mc-fade-in {
@@ -616,7 +619,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   border: 2px solid var(--firefly);
   border-radius: 0;
   padding: 36px;
-  box-shadow: 8px 8px 0 var(--very-peri);
+  box-shadow: 0 16px 40px -12px rgba(104, 104, 172, 0.35);
 }
 .mc-picker-q {
   font-family: var(--type-heading);
@@ -655,8 +658,8 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 }
 .mc-picker-opt:hover {
   background: var(--very-peri-50);
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--firefly);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -4px rgba(12, 36, 50, 0.18);
 }
 .mc-picker-opt:hover::after { opacity: 1; transform: translateX(2px); }
 .mc-picker-opt.is-selected {
@@ -770,7 +773,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 .mc-field textarea:focus {
   outline: none;
   background: #fff;
-  box-shadow: 4px 4px 0 var(--very-peri);
+  box-shadow: 0 0 0 3px rgba(104, 104, 172, 0.25);
 }
 .mc-field textarea { min-height: 110px; }
 .mc-radios {
@@ -819,7 +822,7 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
 .mc-field.has-error .mc-form-error { display: block; }
 .mc-field.has-error input,
 .mc-field.has-error textarea {
-  box-shadow: 4px 4px 0 #B0392A;
+  box-shadow: 0 0 0 3px rgba(176, 57, 42, 0.25);
 }
 
 /* ---------- footer ---------- */
