@@ -510,6 +510,8 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   grid-template-columns: auto 1fr;
   gap: clamp(40px, 6vw, 64px);
   align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
 }
 .mc-portrait {
   position: relative;
