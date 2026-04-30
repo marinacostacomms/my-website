@@ -160,7 +160,7 @@ export const SITE = {
       reset: 'Send another',
     },
     networkError:
-      "Sorry — something went wrong sending that. Please email hello@marinacosta.ca directly.",
+      "Sorry — something went wrong sending that. Please email marina@costacommunication.ca directly.",
   },
 
   footer: {
@@ -184,7 +184,12 @@ export const SITE = {
             label: 'LinkedIn',
             external: true,
           },
-          { href: 'mailto:hello@marinacosta.ca', label: 'hello@marinacosta.ca' },
+          {
+            href: 'https://substack.com/@maricostacomms',
+            label: 'Substack',
+            external: true,
+          },
+          { href: 'mailto:marina@costacommunication.ca', label: 'marina@costacommunication.ca' },
         ],
       },
     ],
