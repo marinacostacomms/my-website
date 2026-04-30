@@ -655,18 +655,14 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   padding: clamp(48px, 6vw, 96px) 0;
 }
 .mc-contact-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: end;
-  margin-bottom: 32px;
+  max-width: 760px;
+  margin: 0 auto 32px;
 }
 .mc-contact h2 {
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 600;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.018em;
   margin-top: 12px;
-  max-width: 14ch;
 }
 .mc-contact-head-aside {
   font-size: 15px;
@@ -679,6 +675,8 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   border: 2px solid var(--firefly);
   border-radius: 0;
   padding: 40px;
+  max-width: 760px;
+  margin: 0 auto;
 }
 .mc-form--sent { padding: 56px 40px; }
 .mc-form--sent h3 {
