@@ -1,0 +1,488 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icons.astro';
+import { ROLES } from '../data/roles';
+import { SITE } from '../content/copy';
+
+const FORMSPREE_ENDPOINT =
+  import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? 'https://formspree.io/f/REPLACE_ME';
+---
+<Base title={SITE.meta.title} description={SITE.meta.description}>
+  <!-- ====== TOP NAV ====== -->
+  <header class="mc-nav">
+    <div class="mc-container mc-nav-inner">
+      <a href="#" class="mc-logo" aria-label="Marina Costa Communication">
+        <img src="/assets/logo-primary.png" alt="Marina Costa Communication" />
+      </a>
+      <nav class="mc-nav-links" aria-label="Primary">
+        {SITE.nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+      <a href="#contact" class="mc-nav-cta">
+        {SITE.nav.cta} <Icon name="arrow-right" size={14} />
+      </a>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="mc-hero">
+    <div class="mc-container">
+      <div class="mc-hero-eyebrow-row">
+        <span class="mc-hero-rule"></span>
+        <span class="mc-eyebrow">{SITE.hero.eyebrow}</span>
+      </div>
+      <h1 set:html={SITE.hero.headlineHtml}></h1>
+      <p class="mc-lead mc-hero-lead">{SITE.hero.lead}</p>
+      <div class="mc-hero-actions">
+        <a href="#contact" class="mc-btn mc-btn--primary mc-btn--lg">
+          {SITE.hero.primaryCta} <Icon name="arrow-right" size={16} />
+        </a>
+        <a href={SITE.hero.onePagerHref} class="mc-btn mc-btn--ghost mc-btn--lg">
+          <Icon name="download" size={16} />
+          {SITE.hero.secondaryCta}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ROLES ====== -->
+  <section class="mc-roles" id="roles">
+    <div class="mc-container">
+      <header class="mc-roles-head">
+        <div>
+          <span class="mc-eyebrow">{SITE.roles.eyebrow}</span>
+          <h2>{SITE.roles.heading}</h2>
+        </div>
+        <p class="mc-roles-head-meta">{SITE.roles.meta}</p>
+      </header>
+
+      <div class="mc-role-grid" id="role-grid">
+        {ROLES.map((role) => (
+          <article class="mc-role-card" id={`role-${role.key}`} data-role={role.key}>
+            <div class="mc-role-top">
+              <span class="mc-chip">{role.tag}</span>
+            </div>
+            <h3 class="mc-role-title">The {role.title}</h3>
+            <p class="mc-role-outcome">{role.outcome}</p>
+            <hr class="mc-role-divider" />
+            <div class="mc-role-model">
+              <div class="mc-role-model-label">How it works</div>
+              <div class="mc-role-model-shape">{role.shape}</div>
+              <div class="mc-role-model-note">{role.note}</div>
+            </div>
+            <div class="mc-role-actions">
+              <button
+                type="button"
+                class="mc-role-toggle"
+                data-toggle-role={role.key}
+                aria-expanded="false"
+                aria-controls="role-detail"
+              >
+                <span class="mc-role-toggle-label">{SITE.roles.expandLabel}</span>
+                <span class="mc-arrow"><Icon name="chevron-down" size={14} /></span>
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mc-role-detail" id="role-detail" role="region" aria-live="polite" hidden>
+        <header class="mc-role-detail-head">
+          <div>
+            <span class="mc-eyebrow" data-detail-eyebrow>More on the builder</span>
+            <h3 data-detail-title>The Builder, in detail.</h3>
+          </div>
+          <button type="button" class="mc-role-detail-close" id="role-detail-close" aria-label="Close details">
+            <Icon name="close" size={16} />
+          </button>
+        </header>
+        <div class="mc-role-detail-grid">
+          <div class="mc-role-detail-col">
+            <h4>Ideal for</h4>
+            <p data-detail-ideal></p>
+          </div>
+          <div class="mc-role-detail-col">
+            <h4 data-detail-what-label></h4>
+            <ul data-detail-what></ul>
+          </div>
+          <div class="mc-role-detail-col">
+            <h4>The outcome</h4>
+            <p data-detail-outcome></p>
+          </div>
+        </div>
+        <div class="mc-role-detail-cta">
+          <a href="#contact" class="mc-btn mc-btn--primary" data-detail-cta>
+            Talk about a builder engagement <Icon name="arrow-right" size={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section class="mc-about" id="about">
+    <div class="mc-container">
+      <div class="mc-about-inner">
+        <div class="mc-portrait" aria-label="Portrait of Marina Costa">
+          <div class="mc-portrait-overlay"></div>
+        </div>
+        <div>
+          <span class="mc-eyebrow">{SITE.about.eyebrow}</span>
+          <h2>{SITE.about.heading}</h2>
+          {SITE.about.paragraphs.map((p) => <p>{p}</p>)}
+          <div class="mc-about-actions">
+            <button type="button" class="mc-btn mc-btn--ghost" id="about-toggle" aria-expanded="false" aria-controls="about-detail">
+              <span class="mc-about-toggle-label">{SITE.about.expandLabel}</span>
+              <span class="mc-arrow"><Icon name="chevron-down" size={14} /></span>
+            </button>
+            <a href={SITE.about.bioHref} class="mc-btn mc-btn--ghost">
+              <Icon name="download" size={16} />
+              {SITE.about.bioLabel}
+            </a>
+            <a
+              href={SITE.about.linkedinHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Marina on LinkedIn"
+              class="mc-iconlink"
+            >
+              <Icon name="linkedin" size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mc-about-detail" id="about-detail" hidden>
+        {SITE.about.longer.map((section) => (
+          <div>
+            <h4>{section.heading}</h4>
+            {'list' in section && section.list ? (
+              <ul>
+                {section.list.map((li) => (
+                  <li><strong>{li.strong}</strong>{li.body}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{(section as { body: string }).body}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PICKER ====== -->
+  <section class="mc-picker-section" id="picker">
+    <div class="mc-container">
+      <div class="mc-picker-section-inner">
+        <div>
+          <span class="mc-eyebrow">{SITE.picker.eyebrow}</span>
+          <h2>{SITE.picker.heading}</h2>
+          <p class="mc-lead" style="max-width: 38ch; margin-top: 16px;">{SITE.picker.lead}</p>
+        </div>
+        <div class="mc-picker" id="picker"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section class="mc-contact" id="contact">
+    <div class="mc-container">
+      <div class="mc-contact-head">
+        <div>
+          <span class="mc-eyebrow">{SITE.contact.eyebrow}</span>
+          <h2>{SITE.contact.heading}</h2>
+        </div>
+        <p class="mc-contact-head-aside">{SITE.contact.aside}</p>
+      </div>
+
+      <form class="mc-form" id="contact-form" action={FORMSPREE_ENDPOINT} method="POST">
+        <div class="mc-form-grid">
+          <label class="mc-field">
+            <span class="mc-field-label">{SITE.contact.fields.name}</span>
+            <input type="text" name="name" required placeholder={SITE.contact.fields.namePlaceholder} />
+            <span class="mc-form-error">{SITE.contact.fields.nameError}</span>
+          </label>
+          <label class="mc-field">
+            <span class="mc-field-label">{SITE.contact.fields.email}</span>
+            <input type="email" name="email" required placeholder={SITE.contact.fields.emailPlaceholder} />
+            <span class="mc-form-error">{SITE.contact.fields.emailError}</span>
+          </label>
+          <label class="mc-field mc-field--full">
+            <span class="mc-field-label">{SITE.contact.fields.organization}</span>
+            <input type="text" name="organization" placeholder={SITE.contact.fields.organizationPlaceholder} />
+          </label>
+          <fieldset class="mc-field mc-field--full">
+            <legend class="mc-field-label">{SITE.contact.fields.role}</legend>
+            <div class="mc-radios" id="role-radios">
+              {SITE.contact.fields.roleOptions.map((o) => (
+                <label class={`mc-radio ${o.v === SITE.contact.fields.roleDefault ? 'is-selected' : ''}`}>
+                  <input type="radio" name="role" value={o.v} checked={o.v === SITE.contact.fields.roleDefault} />
+                  <span>{o.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <label class="mc-field mc-field--full">
+            <span class="mc-field-label">{SITE.contact.fields.message}</span>
+            <textarea name="message" rows="5" required placeholder={SITE.contact.fields.messagePlaceholder}></textarea>
+            <span class="mc-form-error">{SITE.contact.fields.messageError}</span>
+          </label>
+        </div>
+        <div class="mc-form-foot">
+          <button type="submit" class="mc-btn mc-btn--primary">
+            {SITE.contact.submit} <Icon name="arrow-right" size={16} />
+          </button>
+          <span class="mc-form-meta">{SITE.contact.meta}</span>
+        </div>
+      </form>
+
+      <div class="mc-form mc-form--sent" id="contact-sent" hidden>
+        <span class="mc-eyebrow">{SITE.contact.sent.eyebrow}</span>
+        <h3>{SITE.contact.sent.heading}</h3>
+        <p class="mc-lead">{SITE.contact.sent.body}</p>
+        <button type="button" class="mc-btn mc-btn--ghost" id="contact-reset">{SITE.contact.sent.reset}</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="mc-footer">
+    <div class="mc-container">
+      <div class="mc-footer-inner">
+        <div>
+          <a href="#" class="mc-footer-mark">
+            <img src="/assets/logo-inverse.png" alt="" />
+          </a>
+          <p>{SITE.footer.blurb}</p>
+        </div>
+        {SITE.footer.columns.map((col) => (
+          <div>
+            <h5>{col.heading}</h5>
+            <ul>
+              {col.links.map((l) => (
+                <li>
+                  {'external' in l && l.external ? (
+                    <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+                  ) : (
+                    <a href={l.href}>{l.label}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div class="mc-footer-bottom">
+        <span>{SITE.footer.copyright}</span>
+        <span>{SITE.footer.tagline}</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    import { ROLES } from '../data/roles';
+    import { SITE } from '../content/copy';
+
+    // ---------- Role card expand ----------
+    const detail = document.getElementById('role-detail') as HTMLElement | null;
+    const detailEyebrow = document.querySelector('[data-detail-eyebrow]') as HTMLElement | null;
+    const detailTitle = document.querySelector('[data-detail-title]') as HTMLElement | null;
+    const detailIdeal = document.querySelector('[data-detail-ideal]') as HTMLElement | null;
+    const detailWhatLabel = document.querySelector('[data-detail-what-label]') as HTMLElement | null;
+    const detailWhat = document.querySelector('[data-detail-what]') as HTMLElement | null;
+    const detailOutcome = document.querySelector('[data-detail-outcome]') as HTMLElement | null;
+    const detailCta = document.querySelector('[data-detail-cta]') as HTMLAnchorElement | null;
+
+    let activeRole: string | null = null;
+
+    function renderDetail(key: string) {
+      const r = ROLES.find((x) => x.key === key);
+      if (!r || !detail) return;
+      if (detailEyebrow) detailEyebrow.textContent = `More on the ${r.title.toLowerCase()}`;
+      if (detailTitle) detailTitle.textContent = `The ${r.title}, in detail.`;
+      if (detailIdeal) detailIdeal.textContent = r.detail.ideal;
+      if (detailWhatLabel) detailWhatLabel.textContent = r.detail.whatLabel;
+      if (detailWhat) {
+        detailWhat.innerHTML = '';
+        r.detail.what.forEach((w) => {
+          const li = document.createElement('li');
+          li.textContent = w;
+          detailWhat.appendChild(li);
+        });
+      }
+      if (detailOutcome) detailOutcome.textContent = r.detail.outcomeLong;
+      if (detailCta) {
+        detailCta.innerHTML = `Talk about a ${r.title.toLowerCase()} engagement <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>`;
+      }
+    }
+
+    function setActiveRole(key: string | null) {
+      activeRole = key;
+      document.querySelectorAll<HTMLElement>('.mc-role-card').forEach((card) => {
+        const k = card.dataset.role;
+        const isActive = k === key;
+        card.classList.toggle('is-active', isActive);
+        const btn = card.querySelector<HTMLButtonElement>('[data-toggle-role]');
+        const label = card.querySelector<HTMLElement>('.mc-role-toggle-label');
+        if (btn) btn.setAttribute('aria-expanded', String(isActive));
+        if (label) label.textContent = isActive ? SITE.roles.collapseLabel : SITE.roles.expandLabel;
+      });
+      if (!detail) return;
+      if (key) {
+        renderDetail(key);
+        detail.hidden = false;
+      } else {
+        detail.hidden = true;
+      }
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-toggle-role]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.toggleRole ?? null;
+        setActiveRole(activeRole === key ? null : key);
+      });
+    });
+    document.getElementById('role-detail-close')?.addEventListener('click', () => setActiveRole(null));
+
+    // ---------- About expand ----------
+    const aboutToggle = document.getElementById('about-toggle');
+    const aboutDetail = document.getElementById('about-detail');
+    aboutToggle?.addEventListener('click', () => {
+      if (!aboutDetail || !aboutToggle) return;
+      const isOpen = !aboutDetail.hidden;
+      aboutDetail.hidden = isOpen;
+      aboutToggle.setAttribute('aria-expanded', String(!isOpen));
+      const label = aboutToggle.querySelector<HTMLElement>('.mc-about-toggle-label');
+      if (label) label.textContent = isOpen ? SITE.about.expandLabel : SITE.about.collapseLabel;
+      const arrow = aboutToggle.querySelector<HTMLElement>('.mc-arrow');
+      if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+
+    // ---------- Picker ----------
+    const pickerEl = document.getElementById('picker');
+    type Answers = Record<string, string>;
+    const QUESTIONS = SITE.picker.questions;
+    const RESULTS = SITE.picker.results;
+
+    let pStep = 0;
+    let pAnswers: Answers = {};
+
+    function recommend() {
+      if (pAnswers.stage === 'none' || pAnswers.need === 'capacity') return RESULTS.builder;
+      if (pAnswers.stage === 'team' || pAnswers.need === 'leadership') return RESULTS.leader;
+      return RESULTS.specialist;
+    }
+
+    function renderPicker() {
+      if (!pickerEl) return;
+      if (pStep >= QUESTIONS.length) {
+        const r = recommend();
+        pickerEl.innerHTML = `
+          <span class="mc-eyebrow">${SITE.picker.yourFitEyebrow}</span>
+          <h3 class="mc-picker-q">${SITE.picker.resultHeading}</h3>
+          <div class="mc-picker-result">
+            <div class="mc-picker-role">${r.role}</div>
+            <div class="mc-picker-why">${r.why}</div>
+            <div class="mc-picker-actions">
+              <button type="button" class="mc-btn mc-btn--primary" data-picker-cta>${SITE.picker.resultPrimaryCta} →</button>
+              <button type="button" class="mc-btn mc-btn--ghost" data-picker-reset>${SITE.picker.resultResetCta}</button>
+            </div>
+          </div>
+        `;
+        pickerEl.querySelector<HTMLButtonElement>('[data-picker-cta]')?.addEventListener('click', () => {
+          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        pickerEl.querySelector<HTMLButtonElement>('[data-picker-reset]')?.addEventListener('click', () => {
+          pStep = 0;
+          pAnswers = {};
+          renderPicker();
+        });
+        return;
+      }
+      const cur = QUESTIONS[pStep];
+      pickerEl.innerHTML = `
+        <span class="mc-eyebrow">Step ${pStep + 1} of ${QUESTIONS.length}</span>
+        <h3 class="mc-picker-q">${cur.q}</h3>
+        <div class="mc-picker-opts">
+          ${cur.opts.map((o) => `<button type="button" class="mc-picker-opt" data-pick="${o.v}">${o.label}</button>`).join('')}
+        </div>
+        <div class="mc-picker-meta">${SITE.picker.meta}</div>
+      `;
+      pickerEl.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.pick!;
+          pAnswers[cur.key] = v;
+          pickerEl.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach((b) => b.classList.remove('is-selected'));
+          btn.classList.add('is-selected');
+          setTimeout(() => {
+            pStep += 1;
+            renderPicker();
+          }, 220);
+        });
+      });
+    }
+    renderPicker();
+
+    // ---------- Contact form ----------
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const sent = document.getElementById('contact-sent');
+    const reset = document.getElementById('contact-reset');
+    const radios = document.getElementById('role-radios');
+
+    radios?.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      if (target?.name !== 'role') return;
+      radios.querySelectorAll('.mc-radio').forEach((el) => el.classList.remove('is-selected'));
+      target.closest('.mc-radio')?.classList.add('is-selected');
+    });
+
+    function clearErrors() {
+      form?.querySelectorAll('.mc-field.has-error').forEach((el) => el.classList.remove('has-error'));
+    }
+
+    function setError(name: string) {
+      const input = form?.querySelector(`[name="${name}"]`);
+      input?.closest('.mc-field')?.classList.add('has-error');
+    }
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearErrors();
+      const fd = new FormData(form);
+      const name = String(fd.get('name') ?? '').trim();
+      const email = String(fd.get('email') ?? '').trim();
+      const message = String(fd.get('message') ?? '').trim();
+      let ok = true;
+      if (!name) { setError('name'); ok = false; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError('email'); ok = false; }
+      if (!message) { setError('message'); ok = false; }
+      if (!ok) return;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: fd,
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error('submit failed');
+        form.hidden = true;
+        if (sent) sent.hidden = false;
+      } catch (err) {
+        alert(SITE.contact.networkError);
+      }
+    });
+
+    reset?.addEventListener('click', () => {
+      if (!form || !sent) return;
+      form.reset();
+      radios?.querySelectorAll('.mc-radio').forEach((el) => el.classList.remove('is-selected'));
+      const def = radios?.querySelector(`input[value="${SITE.contact.fields.roleDefault}"]`) as HTMLInputElement | null;
+      if (def) {
+        def.checked = true;
+        def.closest('.mc-radio')?.classList.add('is-selected');
+      }
+      sent.hidden = true;
+      form.hidden = false;
+    });
+  </script>
+</Base>
