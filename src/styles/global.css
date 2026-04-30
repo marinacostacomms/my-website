@@ -232,19 +232,14 @@ p { margin: 0 0 16px; line-height: 1.6; text-wrap: pretty; color: var(--firefly)
   padding: clamp(48px, 6vw, 96px) 0;
 }
 .mc-roles-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
   margin-bottom: 40px;
-  flex-wrap: wrap;
 }
 .mc-roles h2 {
   font-size: clamp(40px, 5vw, 64px);
   font-weight: 600;
   letter-spacing: -0.022em;
   margin-top: 12px;
-  max-width: 16ch;
+  text-wrap: pretty;
 }
 .mc-roles-head-meta {
   font-family: var(--type-body);
