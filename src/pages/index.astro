@@ -178,7 +178,7 @@ const FORMSPREE_ENDPOINT =
           <h2>{SITE.picker.heading}</h2>
           <p class="mc-lead" style="max-width: 38ch; margin-top: 16px;">{SITE.picker.lead}</p>
         </div>
-        <div class="mc-picker" id="picker"></div>
+        <div class="mc-picker" id="picker-host"></div>
       </div>
     </div>
   </section>
@@ -358,7 +358,7 @@ const FORMSPREE_ENDPOINT =
     });
 
     // ---------- Picker ----------
-    const pickerEl = document.getElementById('picker');
+    const pickerEl = document.getElementById('picker-host');
     type Answers = Record<string, string>;
     const QUESTIONS = SITE.picker.questions;
     const RESULTS = SITE.picker.results;
