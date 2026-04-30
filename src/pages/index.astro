@@ -14,7 +14,16 @@ import { SITE } from '../content/copy';
       <nav class="mc-nav-links" aria-label="Primary">
         {SITE.nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
       </nav>
-      <a href="#contact" class="mc-nav-cta">
+      <a href="#contact" class="mc-nav-cta mc-nav-cta--desktop">
+        {SITE.nav.cta} <Icon name="arrow-right" size={14} />
+      </a>
+      <button type="button" class="mc-nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <Icon name="menu" size={24} />
+      </button>
+    </div>
+    <div class="mc-nav-mobile" id="nav-mobile" hidden>
+      {SITE.nav.links.map((l) => <a href={l.href} data-nav-mobile-link>{l.label}</a>)}
+      <a href="#contact" class="mc-nav-cta" data-nav-mobile-link>
         {SITE.nav.cta} <Icon name="arrow-right" size={14} />
       </a>
     </div>
@@ -324,6 +333,10 @@ import { SITE } from '../content/copy';
       if (key) {
         renderDetail(key);
         detail.hidden = false;
+        // Wait one frame for layout, then scroll the panel into view.
+        requestAnimationFrame(() => {
+          detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
       } else {
         detail.hidden = true;
       }
@@ -476,6 +489,27 @@ import { SITE } from '../content/copy';
       }
       sent.hidden = true;
       form.hidden = false;
+    });
+
+    // ---------- Mobile menu (hamburger) ----------
+    const burger = document.getElementById('nav-burger');
+    const navMobile = document.getElementById('nav-mobile');
+
+    function setNavOpen(open: boolean) {
+      if (!burger || !navMobile) return;
+      navMobile.hidden = !open;
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+
+    burger?.addEventListener('click', () => {
+      const isOpen = !navMobile?.hidden;
+      setNavOpen(!isOpen);
+    });
+
+    // Close when any link inside the mobile menu is tapped
+    document.querySelectorAll<HTMLAnchorElement>('[data-nav-mobile-link]').forEach((a) => {
+      a.addEventListener('click', () => setNavOpen(false));
     });
   </script>
 </Base>
