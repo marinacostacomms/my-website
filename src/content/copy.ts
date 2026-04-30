@@ -29,7 +29,7 @@ export const SITE = {
     headlineHtml:
       'I play one of three roles for organizations needing <em>clear</em> communication.',
     lead:
-      'Fifteen years in rooms where reputation is gained or lost. I help leaders find the words that match what they actually mean — then build the systems that let those words last.',
+      'Builder, Leader, or Specialist, each role is designed to meet you where you're at and get you to where you want to go.',
     primaryCta: 'Start a conversation',
     secondaryCta: 'Download one-pager',
     // When you upload a one-pager PDF to public/assets/, point this at it,
