@@ -31,10 +31,10 @@ export const SITE = {
     lead:
       "Builder, Leader, or Specialist — each role is designed to meet you where you're at and get you to where you want to go.",
     primaryCta: 'Start a conversation',
-    secondaryCta: 'Download one-pager',
-    // When you upload a one-pager PDF to public/assets/, point this at it,
-    // e.g. '/assets/marina-costa-one-pager.pdf'
-    onePagerHref: '#',
+    secondaryCta: 'About me',
+    // Anchors to the About section on this page. Change to a PDF path
+    // (e.g. '/assets/marina-costa-one-pager.pdf') if you'd rather link to a download.
+    onePagerHref: '#about',
   },
 
   roles: {
