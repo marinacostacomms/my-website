@@ -23,7 +23,7 @@ That's it. Cloudflare Workers auto-deploys from `main` in ~30–60 seconds. No b
 | **Stack** | Astro 4 (static prerender) + `@astrojs/cloudflare` adapter |
 | **Repo** | [github.com/marinacostacomms/my-website](https://github.com/marinacostacomms/my-website) |
 | **Hosting** | Cloudflare Workers (auto-deploys from GitHub `main`) |
-| **Live URL** | `*.workers.dev` (custom domain TBD) |
+| **Live URL** | https://costacommunication.ca (and `www.`) |
 | **Form handler** | Formspree (`https://formspree.io/f/maqvyjjq` → marina@costacommunication.ca) |
 | **Dev command** | `npm run dev` (port 4321) |
 | **Build command** | `npm run build` (output to `dist/`) |
